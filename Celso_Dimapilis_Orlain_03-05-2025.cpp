@@ -39,7 +39,7 @@ int main() {
             cout << "Enter the column size of the array: ";
             cin >> col;
             if (cin.fail() || col <= 0) { // Validate if input is a number and not negative or 0
-                cout << "Invalid input!";
+                cout << "Invalid input!" << endl;
                 cin.clear();
                 cin.ignore(1000, '\n');
                 continue;
