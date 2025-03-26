@@ -16,7 +16,7 @@ string convertVowelsToUppercase(string sentence) {
 string reverseSentence(string sentence) {
     // Reverse the sentence
     string reversedSentence;
-    for (int i = sentence.length() - 1; i >= 0; i--) { // Concatenate characters starting from the last character of the sentence to reversedSentence
+    for (int i = sentence.length() - 1; i >= 0; i--) { // Concatenate characters starting from the last character of sentence to reversedSentence
         reversedSentence += sentence[i]; 
     }
     return reversedSentence;
@@ -24,10 +24,20 @@ string reverseSentence(string sentence) {
 
 void stringManip() {
     string sentence, reversedSentence;
-
+    int sentenceCount = 0;
     cin.ignore();
-    cout << "Enter a sentence: ";
-    getline(cin, sentence);
+    do {
+        cout << "Enter at least two sentences: ";
+        getline(cin, sentence);
+
+        for (char ch : sentence) {  
+            if (ch == '.' || ch == '?' || ch == '!')    // Count the number of sentences (should be at least 2)
+                sentenceCount++;
+        }
+
+        if (sentenceCount < 2)
+            cout << "Invalid! Please enter at least 2 sentences." << endl;
+    } while (sentenceCount < 2);
 
     cout << "\nSTRING MANIPULATION OUTPUT" << endl;
 
