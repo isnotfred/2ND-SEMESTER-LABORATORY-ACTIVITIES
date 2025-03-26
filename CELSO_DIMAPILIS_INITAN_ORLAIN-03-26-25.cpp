@@ -89,7 +89,7 @@ void sortArray(int arr[], int size) {
 void arrayManip() {
     int size;
     while (true) {
-        cout << "How many elements: ";
+        cout << "\nHow many elements: ";
         cin >> size;
         if (cin.fail() || size < 1) { // Validate if input is a number not less than 1
             cout << "Invalid input!";
@@ -158,4 +158,5 @@ int main() {
             break;
         }
     } while (choice != 3);
+    return 0;
 }
