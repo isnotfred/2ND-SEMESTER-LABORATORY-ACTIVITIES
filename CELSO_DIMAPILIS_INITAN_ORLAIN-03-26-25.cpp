@@ -58,6 +58,7 @@ void stringManip() {
             cout << "Invalid! Please enter at least 2 sentences." << endl;
     } while (sentenceCount < 2);
 
+    // Display all string manipulation outputs
     cout << "\nSTRING MANIPULATION OUTPUT" << endl;
     cout << "\nNumber of words in the sentence: " << countWordsInSentence << endl;
     cout << "\nSentence with uppercase vowels: " << convertVowelsToUppercase(sentence) << endl;
