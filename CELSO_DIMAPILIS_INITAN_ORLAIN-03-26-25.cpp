@@ -2,6 +2,23 @@
 #include <string>
 using namespace std;
 
+int countWordsInSentence(string sentence) {
+    int wordCount = 0;
+    bool inWord = false;
+    // Count the words in the sentence
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] != ' ') {                   
+            if (!inWord) {  
+                wordCount++;
+                inWord = true;
+            }
+        } else {
+            inWord = false;
+        }
+    }
+    return wordCount;
+}
+
 string convertVowelsToUppercase(string sentence) {
     // Convert each vowel found to uppercase
     for (char &ch : sentence) {
@@ -26,6 +43,8 @@ void stringManip() {
     string sentence, reversedSentence;
     int sentenceCount = 0;
     cin.ignore();
+
+    // Prompt user to enter two sentences
     do {
         cout << "Enter at least two sentences: ";
         getline(cin, sentence);
@@ -40,21 +59,7 @@ void stringManip() {
     } while (sentenceCount < 2);
 
     cout << "\nSTRING MANIPULATION OUTPUT" << endl;
-
-    int wordCount = 0;
-    bool inWord = false;
-
-    for (int i = 0; i < sentence.length(); i++) {   // Count the words in the sentence
-        if (sentence[i] != ' ') {                   
-            if (!inWord) {  
-                wordCount++;
-                inWord = true;
-            }
-        } else {
-            inWord = false;
-        }
-    }
-    cout << "\nNumber of words in the sentence: " << wordCount << endl;
+    cout << "\nNumber of words in the sentence: " << countWordsInSentence << endl;
     cout << "\nSentence with uppercase vowels: " << convertVowelsToUppercase(sentence) << endl;
     cout << "\nReversed sentence: " << reverseSentence(sentence) << endl;
 }
@@ -98,6 +103,7 @@ void sortArray(int arr[], int size) {
 
 void arrayManip() {
     int size;
+    // Get array size
     while (true) {
         cout << "\nHow many elements: ";
         cin >> size;
@@ -110,6 +116,8 @@ void arrayManip() {
         break;
     }
     int arr[size];
+
+    // Prompt user to enter the array elements
     for (int i = 0; i < size; i++) {
         while (true){
             cout << "Enter an element of an array: ";
@@ -123,10 +131,13 @@ void arrayManip() {
             break;
         }
     }
+
+    // Display original array
     cout << "Original Array: ";
     for (int i = 0; i < size; i++) {
         cout << arr[i] << ' ';
     }
+    // Display all manipulation outputs
     reverseArray(arr, size);
     findLargest(arr, size);
     sortArray(arr, size);
@@ -135,6 +146,7 @@ void arrayManip() {
 int main() {
     int choice;
     do {
+        // Prompt user to choose from the options
         cout << "OPTION" << endl;
         cout << "1 - String Manipulation" << endl;
         cout << "2 - Array Manipulation" << endl;
@@ -154,6 +166,8 @@ int main() {
             }
             break;
         }
+
+        // Do manipulations based on user choice
         switch (choice) {
         case 1:
             stringManip();
