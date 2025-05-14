@@ -118,5 +118,6 @@ int main() {
         cin.ignore(); // Clear newline character for the next getline
         cout << endl;
     }
+    cout << "Thank you!" << endl;
     return 0;
 }
